@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'smart_energy_group/client'
+
+puts '# Example'
+puts
+puts 'site_token = \'1234\''
+puts 'seg = SmartEnergyGroup::Client.new(site_token)'
+puts 'seg.send_data(\'home\', :temperature => [1, 2, 3, 4])'
+puts
+
+require 'pry'
+Pry.start

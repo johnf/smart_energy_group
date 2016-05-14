@@ -1,0 +1,9 @@
+test:
+  post:
+    - bundle exec rubocop
+machine:
+  ruby:
+    version: 2.3.1
+dependencies:
+  pre:
+    - gem install bundler --pre
