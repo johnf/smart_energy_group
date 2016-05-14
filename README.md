@@ -5,11 +5,13 @@
 
 Ruby library for talking to the Smart Energy Group API.
 
+Documentation for the API can be found at https://smartenergygroups.com/api
+
 ## Installation
 
 Add this line to your application's Gemfile:
 
-```ruby
+``` ruby
 gem 'smart_energy_group'
 ```
 
@@ -25,16 +27,42 @@ Or install it yourself as:
 
 In order to use smart_energy_group in your application you need to use
 
-```ruby
+``` ruby
 require 'smart_energy_group/client'
 ```
 
 First step is to create a Smart Energy Group client using your Smart Energy Group assigned site_token
 
-```ruby
+``` ruby
 seg = SmartEnergyGroup::Client.new(site_token)
 ```
-TODO: Add exampleshere
+
+You can then push data points
+
+``` ruby
+seg.send_data(
+  'home',
+  :temperature => [20.5, 60.0],
+  :power       => [1023.6, 500.9]
+)
+```
+
+The send_data operation accepts the following options
+
+| Option      | Description |
+| ----------- | ----------- |
+| power       | Power stream with the unit of watts |
+| energy      | Energy stream with the unit prefixed to kilowatt hours |
+| amps        | Current stream with the unit of amps |
+| channel     | Power stream identified with the Phase based on the channel number, with the same settings as a normal power stream |
+| temperature | Temperature stream with default units of Celcius |
+| voltage     | Voltage stream with the units being volts |
+| state       | Switch state stream to determine if a switch is on or off |
+| seconds     | Seconds stream representitive of an elapsed time in seconds |
+| heartbeat   | Boot Event stream to determine if your device has booted and also records a heartbeat to check things are still ticking |
+| pule        | Count of pulses output from a device |
+
+**Note::** The above will raise an error until you put the site into Discovery mode on the SEG website.
 
 ## Development
 
