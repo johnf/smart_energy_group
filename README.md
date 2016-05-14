@@ -1,7 +1,7 @@
 # Smart Energy Group
 
 [![Circle CI](https://circleci.com/gh/johnf/smart_energy_group.svg?style=svg)](https://circleci.com/gh/johnf/smart_energy_group)
-[![Coverage Status](https://coveralls.io/repos/johnf/smart_energy_group/badge.svg?branch=master&service=github)](https://coveralls.io/github/johnf/smart_energy_group?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/johnf/smart_energy_group/badge.svg?branch=master)](https://coveralls.io/github/johnf/smart_energy_group?branch=master)
 
 Ruby library for talking to the Smart Energy Group API.
 
