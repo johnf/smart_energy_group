@@ -26,7 +26,7 @@ module SmartEnergyGroup
 
     def send_data(node_name, options)
       time = options[:when] || Time.now
-      time = time.strftime('%FT%T')
+      time = time.utc.strftime('%FT%T')
 
       data = generate_data(options)
       msg = "(site #{@site_token} (node #{node_name} #{time} #{data}))"
