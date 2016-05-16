@@ -38,9 +38,18 @@ module SmartEnergyGroup
 
     def generate_data(options)
       data = []
+
       DATA_TYPES.keys.each do |type|
-        next unless options[type]
-        data += options[type].map.with_index(1) { |value, i| "(#{DATA_TYPES[type]}_#{i} #{value})" }
+        case options[type]
+        when Array
+          data += options[type].map.with_index(1) { |value, i| "(#{DATA_TYPES[type]}_#{i} #{value})" }
+        when Hash
+          data += options[type].map { |i, value| "(#{DATA_TYPES[type]}_#{i} #{value})" }
+        when NilClass
+          next
+        else
+          raise('Unsupported object type')
+        end
       end
 
       data.join('')
