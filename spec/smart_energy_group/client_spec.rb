@@ -11,7 +11,7 @@ describe SmartEnergyGroup::Client do
     let(:client) { described_class.new(site_token) }
 
     before do
-      Timecop.freeze(Time.local(2015))
+      Timecop.freeze(Time.utc(2015))
     end
 
     after do
