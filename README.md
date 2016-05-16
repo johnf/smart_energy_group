@@ -47,6 +47,16 @@ seg.send_data(
 )
 ```
 
+If you don't have consecutive channels that you want to send you can pass an
+array like so
+
+``` ruby
+seg.send_data(
+  'home',
+  :power       => { 1 => 1023.6, 5 => 500.9 }
+)
+```
+
 The send_data operation accepts the following options
 
 | Option      | Description |
